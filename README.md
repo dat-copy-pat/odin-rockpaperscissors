@@ -1,0 +1,2 @@
+# odin-rockpaperscissors
+The Odin Project Foundations Project: Rock Paper Scissors
