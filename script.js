@@ -28,7 +28,12 @@ function getComputerChoice() {
 
 function getHumanChoice () {
     let humanChoice = prompt("So what's it gonna be? Rock, paper or scissors?");
-    return humanChoice.toLowerCase();
+    // Validate input
+    while (humanChoice !== "rock" && humanChoice !== "paper" && humanChoice !== "scissors") {
+        humanChoice = prompt("That's not an option, dude. Choose between 'rock', 'paper', or 'scissors':");
+        humanChoice = humanChoice.toLowerCase();
+    }
+    return humanChoice;
     }
   
 /* Write logic for a single round
@@ -49,21 +54,24 @@ function playGame() {
     function playRound(humanChoice, computerChoice) {
         humanChoice = humanChoice.toLowerCase();
         computerChoice = computerChoice.toLowerCase();
+        let message = "";
 
         if (humanChoice === computerChoice) {
-        console.log("It's a tie!");
+            message = "It's a tie!";
         } else if (
         (humanChoice === "rock" && computerChoice === "scissors") ||
         (humanChoice === "paper" && computerChoice === "rock") ||
         (humanChoice === "scissors" && computerChoice === "paper")
         ) {
-        console.log(`You win, ${humanChoice} beats ${computerChoice}!`);
-        humanScore++;
+            message = `You win, ${humanChoice} beats ${computerChoice}!`;
+            humanScore++;
         } else {
-        console.log(`Ha, ha, ${computerChoice} beats ${humanChoice}, you loser!`);
-        computerScore++;
+            message = `Ha, ha, ${computerChoice} beats ${humanChoice}, you loser!`;
+            computerScore++;
+        }
+        console.log(message);
     }
-}   
+    
 
     for (let i = 0; i < 5; i++) {
         const humanChoice = getHumanChoice();
@@ -71,7 +79,8 @@ function playGame() {
         playRound(humanChoice, computerChoice);
     }
 
-    console.log(`Final Score - You: ${humanScore}, Computer: ${computerScore}`);
+    const finalMessage = `Final Score - You: ${humanScore}, Computer: ${computerScore}`;
+    console.log(finalMessage);
 }
 
 // Start the game when page loads
