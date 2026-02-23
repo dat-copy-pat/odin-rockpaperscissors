@@ -31,7 +31,7 @@ This assignment from The Odin Project Foundations course is the first JavaScript
 6. Write logic for entire game
     Game must play for 5 rounds.
     Create function playGame
-    Move playRound function and score variables to be delcared inside new function
+    Move playRound function and score variables to be declared inside new function
     Play 5 rounds by calling function 5 times. Loops.
 
 
